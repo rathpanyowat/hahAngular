@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <a ui-sref="admin.booking"><i class="material-icons">keyboard_backspace</i> Back to Booking Page</a>
+          <h1>Matched Caregivers</h1>
+        </div>
+        <div class="col-sm-6">
+          <div class="page-title-detail">
+            <p class="h3">
+              <strong>Booking ID: </strong> {{ matched.list.booking.id }}
+              <strong>Customer: </strong> {{ matched.list.booking.bookingBy }}<br />
+              <strong>Date: </strong> {{ matched.list.booking.created | date: 'd MMM yyyy, HH:mm' }}<br />
+              <strong>Expired: </strong>{{ matched.list.booking.expired | date: 'd MMM yyyy, HH:mm' }} <br />
+              Status: <span class="label label-{{ matched.list.booking.statusClass }}">{{ matched.list.booking.status }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="page-title-action margin-b-btn">
+        <a ui-sref="admin.booking.detail({id: matched.list.booking.id })" class="btn btn-info"><i class="material-icons">info</i> View Detail</a>
+        <a ng-href="#/matched/{{ matched.list.booking.id }}" class="btn btn-info" target="_blank"><i class="material-icons">visibility</i> View Post</a>
+        <div class="btn-group" uib-dropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled" uib-dropdown-toggle>
+            <i class="material-icons">settings</i> Change Status <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+            <li ng-click="matched.changeStatus(matched.list.booking, 1)">
+              <a href=""><span class="bullet label-info"></span>Called</a>
+            </li>
+            <li ng-click="matched.changeStatus(matched.list.booking, 2)">
+              <a href=""><span class="bullet label-info"></span>Sent List</a>
+            </li>
+            <li ng-click="matched.changeStatus(matched.list.booking, 3)">
+              <a href=""><span class="bullet label-success"></span>Finished</a>
+            </li>
+            <li ng-click="matched.changeStatus(matched.list.booking, 4)">
+              <a href=""><span class="bullet label-danger"></span>Overtime</a>
+            </li>
+            <li ng-click="matched.changeStatus(matched.list.booking, 5)">
+              <a href=""><span class="bullet label-danger"></span>Canceled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+
+    <div class="card card-limit-width" ng-repeat="caregiver in matched.list.caregivers">
+      <div class="card-body text-right bg-light-gray margin-b-btn">
+        <p class="inline-block margin-r-1 margin-b-0"><strong>SMS sended at:</strong> {{ caregiver.SMS | date: 'd MMM yyyy, HH:mm' }} | <strong>Tel.</strong> {{ caregiver.phone }} </p>
+        <a ui-sref="admin.caregivers.edit({id: caregiver.id })" class="btn btn-default btn-sm"><i class="material-icons">edit</i> Edit</a>
+        <a href="" ng-click="matched.resendSMS(caregiver)" class="btn btn-default btn-sm"><i class="material-icons">message</i> Resend SMS</a>
+        <div class="btn-group btn-group-sm" uib-dropdown>
+          <a href="" class="btn btn-default dropdown-toggle" ng-disabled="disabled" uib-dropdown-toggle>
+            <i class="material-icons">settings</i> Change Status <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+            <li ng-click="matched.changeCaregiverStatus(caregiver, 0)"><a href=""><span class="bullet label-success"></span>Confirmed</a></li>
+            <li ng-click="matched.changeCaregiverStatus(caregiver, 1)"><a href=""><span class="bullet label-warning"></span>Waiting</a></li>
+            <li ng-click="matched.changeCaregiverStatus(caregiver, 2)"><a href=""><span class="bullet label-danger"></span>Rejected</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-body clearfix">
+        <div class="caregiver-list">
+          <div class="caregiver-list-image">
+            <img class="img-circle" ng-src="{{ caregiver.imageUrl }}" width="125" height="125" >
+          </div>
+          <div class="caregiver-list-body">
+            <h3 class="text-primary"><strong>{{ caregiver.firstName }} {{ caregiver.lastName }} ({{ caregiver.nickName }})</strong></h3>
+            <p class="text-gray">
+              <span class="h5 margin-r-1 inline-block"><span class="label label-{{ caregiver.statusClass }}">{{ caregiver.status }}</span></span>
+              <span class="margin-r-1 inline-block"><i class="material-icons">account_circle</i> อายุ {{ caregiver.age }} ปี</span>
+              <span class="margin-r-1 inline-block"><i class="material-icons">place</i> {{ caregiver.address.province }}</span>
+              <span class="margin-r-1 inline-block" ng-if="caregiver.education !== 'None'"><i class="material-icons">local_hospital</i> {{ caregiver.education }}</span>
+              <span class="margin-r-1 inline-block"><i class="material-icons">work</i> ประสบการณ์ {{ caregiver.years }} ปี</span>
+            </p>
+            <p>{{ caregiver.desc }}</p>
+            <p class="margin-t-2 margin-b-2 inline-block">
+              <span class="label label-primary label-pricing">{{ caregiver.pricing.short12 }} บาท/วัน</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

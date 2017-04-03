@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-sm-12 page-title">
+    <h1>Booking</h1>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="card card-no-margin-bottom text-right">
+      <div class="card-body">
+        Filter by:
+        <div class="btn-group" uib-dropdown>
+          <button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disabled" uib-dropdown-toggle>
+            All <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+            <li ng-click="bookList.filterOption('')"><a href=""><span class="bullet label-neutral"></span>All</a></li>
+            <li ng-click="bookList.filterOption('New')"><a href=""><span class="bullet label-warning"></span>New</a></li>
+            <li ng-click="bookList.filterOption('Called')"><a href=""><span class="bullet label-info"></span>Called</a></li>
+            <li ng-click="bookList.filterOption('Sent List')"><a href=""><span class="bullet label-info"></span>Sent List</a></li>
+            <li ng-click="bookList.filterOption('Finished')"><a href=""><span class="bullet label-success"></span>Finished</a></li>
+            <li ng-click="bookList.filterOption('Canceled')"><a href=""><span class="bullet label-danger"></span>Canceled</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width:5%;">ID</th>
+                <th style="width:20%;">Booking Time</th>
+                <th style="width:15%;">Customer</th>
+                <th style="width:15%;">Tel.</th>
+                <th style="width:10%;">Status</th>
+                <th style="width:45%;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="booking in bookList.list | filter: bookList.filterType | orderBy: '-id'">
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.created | date: 'd MMM yyyy, HH:mm' }}</td>
+                <td>{{ booking.bookingBy }}</td>
+                <td>{{ booking.phoneNo }}</td>
+                <td><span class="h5"><span class="label label-{{ booking.statusClass }}">{{ booking.status }}</span></span></td>
+                <td class="action">
+                  <a ui-sref="admin.booking.detail({id: booking.id })" class="btn btn-default btn-sm">Detail</a>
+                  <a ui-sref="admin.booking.matched({id: booking.id })" class="btn btn-default btn-sm">View Matched</a>
+                  <div class="btn-group btn-group-sm" uib-dropdown>
+                    <a class="btn btn-primary dropdown-toggle" ng-disabled="disabled" uib-dropdown-toggle>
+                      Change Status <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+                      <li ng-click="bookList.changeStatus(booking, 1)">
+                        <a href=""><span class="bullet label-info"></span>Called</a>
+                      </li>
+                      <li ng-click="bookList.changeStatus(booking, 2)">
+                        <a href=""><span class="bullet label-info"></span>Sent List</a>
+                      </li>
+                      <li ng-click="bookList.changeStatus(booking, 3)">
+                        <a href=""><span class="bullet label-success"></span>Finished</a>
+                      </li>
+                      <li ng-click="bookList.changeStatus(booking, 4)">
+                        <a href=""><span class="bullet label-danger"></span>Overtime</a>
+                      </li>
+                      <li ng-click="bookList.changeStatus(booking, 5)">
+                        <a href=""><span class="bullet label-danger"></span>Canceled</a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a href="" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="active"><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+        <li>
+          <a href="" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container auth-page">
+  <div class="row">
+    <div class="col-sm-12 text-center margin-t-4 margin-b-2">
+      <figure class="img-circle inline-block" style="background: #174873;width: 200px;height: 200px;padding-top: 34px;">
+        <img src="assets/images/landing/landing-logo.svg" alt="Health at Home Logo" width="120" height="120">
+      </figure>
+      <h1 class="text-white h2">Health at Home</h1>
+    </div>
+    <div class="col-sm-12">
+      <div class="card auth-card center-block">
+        <div class="card-body">
+          <h3 class="text-center margin-b-2" ng-bind="auth.formTitle"></h3>
+          <form role="form" ng-submit="auth.submitAction()">
+            <fieldset>
+              <div class="form-group">
+                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Password" name="password" type="password" value="">
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block" ng-bind="auth.submitTitle">เข้าสู่ระบบ</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-12 text-center margin-b-2 ">
+        <a ui-sref="landing" class="text-light-gray"><i class="material-icons">keyboard_backspace</i> กลับสู่หน้าแรก</a>
+      </div>
+    </div>
+  </div>
+</div>

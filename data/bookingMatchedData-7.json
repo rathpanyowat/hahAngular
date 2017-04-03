@@ -1,0 +1,104 @@
+{
+  "booking": {
+    "id" : 7,
+    "created" : "2016-03-16T07:20:21.159Z",
+    "bookingBy": "Alvin Thompson",
+    "status": 5,
+    "expired": "2016-03-19T07:20:21.159Z"
+  },
+  "caregivers": [
+    {
+      "id": 1,
+      "status": 0,
+      "SMS": "2016-03-16T07:20:21.159Z",
+      "firstName": "สมหญิง",
+      "lastName": "จริงใจ",
+      "nickName": "ดา",
+      "age": 50,
+      "gender": 1,
+      "phone" : "088-232-5628",
+      "lineID": "@somying.jingjai",
+      "email": "somying.jingjai@mail.com",
+      "address": {
+        "address": "123",
+        "street": "สุขุมวิท",
+        "subdistrict": "คลองตันเหนือ",
+        "district": "วัฒนา",
+        "province": "กรุงเทพมหานคร",
+        "zip": "10110"
+      },
+      "imageUrl": "assets/images/caregivers/caregiver01.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur!",
+      "years": 10,
+      "education": "NA",
+      "pricing": {
+        "short12": 900,
+        "short24": 1000,
+        "long12": 800,
+        "long24": 900
+      }
+    },
+    {
+      "id": 2,
+      "status": 1,
+      "SMS": "2016-03-16T07:20:21.159Z",
+      "firstName": "สมหญิง 2",
+      "lastName": "จริงใจจริงๆ",
+      "nickName": "ตา",
+      "age": 53,
+      "gender": 1,
+      "phone" : "088-945-2372",
+      "lineID": "@somying2.jingjai",
+      "email": "somying2.jingjai@mail.com",
+      "address": {
+        "address": "123",
+        "street": "สุขุมวิท",
+        "subdistrict": "คลองตันเหนือ",
+        "district": "วัฒนา",
+        "province": "กรุงเทพมหานคร",
+        "zip": "10110"
+      },
+      "imageUrl": "assets/images/caregivers/caregiver02.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur!",
+      "years": 12,
+      "education": "NA",
+      "pricing": {
+        "short12": 1000,
+        "short24": 1200,
+        "long12": 900,
+        "long24": 1000
+      }
+    },
+    {
+      "id": 3,
+      "status": 2,
+      "SMS": "2016-03-16T07:20:21.159Z",
+      "firstName": "สมลักษณ์",
+      "lastName": "ใจจริง",
+      "nickName": "ด้า",
+      "age": 45,
+      "gender": 1,
+      "phone" : "089-624-1673",
+      "lineID": "@somluck.jaijing",
+      "email": "somluck.jaijing@mail.com",
+      "address": {
+        "address": "123",
+        "street": "สุขุมวิท",
+        "subdistrict": "คลองตันเหนือ",
+        "district": "วัฒนา",
+        "province": "กรุงเทพมหานคร",
+        "zip": "10110"
+      },
+      "imageUrl": "assets/images/caregivers/caregiver01.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur!",
+      "years": 8,
+      "education": "NA",
+      "pricing": {
+        "short12": 500,
+        "short24": 600,
+        "long12": 400,
+        "long24": 450
+      }
+    }
+  ]
+}

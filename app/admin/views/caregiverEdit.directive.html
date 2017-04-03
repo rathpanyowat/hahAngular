@@ -1,0 +1,300 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page-title">
+      <a href="" ng-click="$root.goBack()"><i class="material-icons">keyboard_backspace</i> Back to {{ caregiver.backTarget }}</a>
+      <h1 ng-bind="title"></h1>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <form ng-submit="submit()">
+      <div class="card">
+        <div class="card-head card-head-primary">
+          <header>
+            General Information
+          </header>
+        </div>
+        <div class="card-body">
+          <div class="form-horizontal">
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Firstname</label>
+              <div class="col-sm-10 col-md-4 form-group-first-half">
+                <input type="text" ng-model="caregiver.firstName" name="" class="form-control" placeholder="Firstname">
+              </div>
+              <label for="" class="col-sm-2 control-label">Lastname</label>
+              <div class="col-sm-10 col-md-4">
+                <input type="text" ng-model="caregiver.lastName" name="" class="form-control" placeholder="Lastname">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Nickname</label>
+              <div class="col-sm-4">
+                <input type="text" ng-model="caregiver.nickName" name="" class="form-control" placeholder="Nickname">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Age</label>
+              <div class="col-sm-4">
+                <input type="number" ng-model="caregiver.age" name="" class="form-control" placeholder="Age">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Gender</label>
+              <div class="col-sm-10">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.gender" name="caregiverGender" value="1"><span>Female</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.gender" name="caregiverGender" value="2"><span>Male</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Phone</label>
+              <div class="col-sm-10 col-md-4 form-group-first-half">
+                <input type="text" ng-model="caregiver.phone" name="" class="form-control" placeholder="Phone NO.">
+              </div>
+              <label for="" class="col-sm-2 control-label">LineID</label>
+              <div class="col-sm-10 col-md-4">
+                <input type="text" ng-model="caregiver.lineID" name="" class="form-control" placeholder="Line ID">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-4">
+                <input type="email" ng-model="caregiver.email" name="" class="form-control" placeholder="E-mail">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Address</label>
+              <div class="col-sm-10 col-md-4 form-group-first-half">
+                <input type="text" ng-model="caregiver.address.address" name="" class="form-control" placeholder="Address">
+              </div>
+              <label for="" class="col-sm-2 control-label">Street</label>
+              <div class="col-sm-10 col-md-4">
+                <input type="text" ng-model="caregiver.address.street" name="" class="form-control" placeholder="Street">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Sub-district</label>
+              <div class="col-sm-10 col-md-4 form-group-first-half">
+                <input type="text" ng-model="caregiver.address.subdistrict" name="" class="form-control" placeholder="Sub-district">
+              </div>
+              <label for="" class="col-sm-2 control-label">District</label>
+              <div class="col-sm-10 col-md-4">
+                <input type="text" ng-model="caregiver.address.district" name="" class="form-control" placeholder="District">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Province</label>
+              <div class="col-sm-10 col-md-4 form-group-first-half">
+                <input type="text" ng-model="caregiver.address.province"
+                uib-typeahead="province for province in caregiver.provinces | filter:$viewValue | limitTo:8"
+                name="" class="form-control" placeholder="Province">
+              </div>
+              <label for="" class="col-sm-2 control-label">Zip</label>
+              <div class="col-sm-10 col-md-4">
+                <input type="text" ng-model="caregiver.address.zip" name="" class="form-control" placeholder="Zip">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Hometown</label>
+              <div class="col-sm-4">
+                <input type="text" ng-model="caregiver.homeTown"
+                uib-typeahead="province for province in caregiver.provinces | filter:$viewValue | limitTo:8"
+                name="" class="form-control" placeholder="Hometown">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Date of Birth</label>
+              <div class="col-sm-4">
+                <input type="date" ng-model="caregiver.DOB" name="" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Images</label>
+              <div class="col-sm-4">
+                <img ng-src="{{ caregiver.imageUrl }}" class="img-circle margin-b-2" width="125" height="125"
+                  ng-show="caregiver.imageUrl !== undefined">
+                <input type="file" name="">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card clearfix">
+        <div class="card-head card-head-primary">
+          <header>
+            Working Detail
+          </header>
+        </div>
+        <div class="card-body">
+          <div class="form-horizontal">
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-10">
+                <textarea ng-model="caregiver.desc" class="form-control" rows="5" placeholder="Description"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Years of work</label>
+              <div class="col-sm-4">
+                <input ng-model="caregiver.years" type="number" name="" class="form-control" placeholder="Years of work">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Education</label>
+              <div class="col-sm-10">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.education" name="Education" value="None"><span>None</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.education" name="Education" value="NA"><span>NA</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.education" name="Education" value="NA"><span>PN</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.education" name="Education" value="NA"><span>RN</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Wanted Care Time</label>
+              <div class="col-sm-10">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.wantedCare" name="CareTime" value="0"><span>12 hr.</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.wantedCare" name="CareTime" value="1"><span>Live-in</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="caregiver.wantedCare" name="CareTime" value="2"><span>Both</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Skills</label>
+              <div class="col-sm-10">
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.skills.ADL" name="Skills" value="ADL"><span>ADL</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.skills.bedRidden" name="Skills" value="bedRidden"><span>Bed-ridden</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.skills.tracheostomy" name="Skills" value="tracheostomy"><span>Trancheostomy</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.skills.tubeFeeding" name="Skills" value="tubeFeeding"><span>Tube Feeding</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.skills.CAPD" name="Skills" value="CAPD"><span>CAPD</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.skills.pressureSore" name="Skills" value="pressureSore"><span>Pressure Sore</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Experience</label>
+              <div class="col-sm-10">
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.experience.Alzheimer" name="Experience" value="Alzheimer"><span>Alzheimer</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.experience.Parkinson" name="Experience" value="Parkinson"><span>Parkinson</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.experience.Stroke" name="Experience" value="Stroke"><span>Stroke</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.experience.postOp" name="Experience" value="postOp"><span>Post-op</span>
+                </label>
+                <label class="checkbox-inline checkbox-styled">
+                  <input type="checkbox" ng-model="caregiver.experience.Palliative" name="Experience" value="Palliative"><span>Palliative</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Available Dates</label>
+              <div class="col-sm-10">
+                <div>
+                  <uib-datepicker
+                    ng-model='caregiver.activeDate'
+                    class="hah-datepicker"
+                    multi-select='caregiver.availables'
+                    select-range='false'
+                    show-weeks="false"
+                    max-mode="day"
+                  ></uib-datepicker>
+                </div>
+                <div>
+                  <a ng-click="caregiver.clearSelectedDate()" class="btn btn-default">Clear</a>
+                </div>
+                <div>
+                  <span ng-repeat="date in caregiver.availables | orderBy: date" class="h6 inline-block bg-info padding-05 margin-r-1 margin-b-05">{{ date | date: 'd MMM' }}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head card-head-primary">
+          <header>
+            Pricing
+          </header>
+        </div>
+        <div class="card-body">
+          <h5 style="color: #436992"><strong>Short term</strong></h5>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">12 hr.</label>
+              <div class="col-sm-4 form-group-first-half">
+                <input type="number" ng-model="caregiver.pricing.short12" name="" class="form-control" placeholder="THB">
+              </div>
+              <label for="" class="col-sm-2 control-label">24 hr.</label>
+              <div class="col-sm-4">
+                <input type="number" ng-model="caregiver.pricing.short24" name="" class="form-control" placeholder="THB">
+              </div>
+            </div>
+          </div>
+
+          <h5 style="color: #436992"><strong>Long term</strong></h5>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">12 hr.</label>
+              <div class="col-sm-4 form-group-first-half">
+                <input type="number" ng-model="caregiver.pricing.long12" name="" class="form-control" placeholder="THB">
+              </div>
+              <label for="" class="col-sm-2 control-label">24 hr.</label>
+              <div class="col-sm-4">
+                <input type="number" ng-model="caregiver.pricing.long24" name="" class="form-control" placeholder="THB">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="padding-t-2 padding-b-4 text-right">
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      </div>
+
+
+    </form>
+  </div>
+</div>

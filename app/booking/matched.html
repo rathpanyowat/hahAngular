@@ -1,0 +1,48 @@
+<hah-navbar navbar-type="front"></hah-navbar>
+
+<div class="container" style="padding-top: 64px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title">
+        <h1 class="text-center">ผู้ดูแลที่ตรงกับความต้องการของท่าน</h1>
+        <h3 class="text-center text-gray">หากท่านสนใจใช้บริการของผู้ดูแลคนไหน กรุณาโทรแจ้งเราที่
+          <a href="tel:+66863971767"><strong style="white-space: nowrap;">โทร. 086-397-1767</strong></a><br />
+          รายชื่อนี้มีผลถึงวันที่ {{ matched.list.booking.expired | date: 'd MMM yyyy' }}</h3>
+      </div>
+
+      <div class="card card-limit-width">
+        <div class="card-body clearfix text-white bg-primary">
+          <div class="row">
+            <div class="col-sm-4"><strong>Customer: </strong> {{ matched.list.booking.bookingBy }}</div>
+            <div class="col-sm-4"><strong>Booking ID: </strong> {{ matched.list.booking.id }}</div>
+            <div class="col-sm-4"><strong>Booking Time: </strong>  {{ matched.list.booking.created | date: 'd MMM yyyy, HH:mm' }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-limit-width" ng-repeat="caregiver in matched.list.caregivers">
+      <div class="card-body clearfix">
+        <div class="caregiver-list">
+          <div class="caregiver-list-image">
+            <img class="img-circle" ng-src="{{ caregiver.imageUrl }}" width="125" height="125" >
+          </div>
+          <div class="caregiver-list-body">
+            <h3 class="text-primary"><strong>{{ caregiver.firstName }} {{ caregiver.lastName }} ({{ caregiver.nickName }})</strong></h3>
+            <p class="text-gray">
+              <span class="h4 margin-r-1 inline-block"><span class="label label-{{ caregiver.statusClass }}">{{ caregiver.status }}</span></span>
+              <span class="margin-r-1 inline-block"><i class="material-icons">account_circle</i> อายุ {{ caregiver.age }} ปี</span>
+              <span class="margin-r-1 inline-block"><i class="material-icons">place</i> {{ caregiver.address.province }}</span>
+              <span class="margin-r-1 inline-block" ng-if="caregiver.education !== 'None'"><i class="material-icons">local_hospital</i> {{ caregiver.education }}</span>
+              <span class="margin-r-1 inline-block"><i class="material-icons">work</i> ประสบการณ์ {{ caregiver.years }} ปี</span>
+            </p>
+            <p>{{ caregiver.desc }}</p>
+            <p class="margin-t-2 margin-b-2 inline-block">
+              <span class="label label-primary label-pricing">{{ caregiver.pricing.short12 }} บาท/วัน</span>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>

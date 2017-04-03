@@ -1,0 +1,159 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <a ui-sref="admin.booking"><i class="material-icons">keyboard_backspace</i> Back to Booking Page</a>
+          <h1>Booking Detail</h1>
+        </div>
+        <div class="col-sm-6">
+          <div class="page-title-detail">
+            <p class="h3">
+              <strong>Booking ID:</strong> {{ bookItem.detail.id }} <br />
+              <strong>Customer:</strong> {{ bookItem.detail.bookingBy }}<br />
+              Status: <span class="label label-{{ bookItem.detail.statusClass }}">{{ bookItem.detail.status }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="page-title-action margin-b-btn">
+        <a ui-sref="admin.booking.edit({id: bookItem.detail.id})" class="btn btn-info"><i class="material-icons">mode_edit</i> Edit</a>
+        <a ui-sref="admin.booking.matched({id: bookItem.detail.id})" class="btn btn-info"><i class="material-icons">visibility</i> View Matched</a>
+        <div class="btn-group" uib-dropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled" uib-dropdown-toggle>
+            <i class="material-icons">settings</i> Change Status <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+            <li ng-click="bookItem.changeStatus(bookItem.detail, 1)">
+              <a href=""><span class="bullet label-info"></span>Called</a>
+            </li>
+            <li ng-click="bookItem.changeStatus(bookItem.detail, 2)">
+              <a href=""><span class="bullet label-info"></span>Sent List</a>
+            </li>
+            <li ng-click="bookItem.changeStatus(bookItem.detail, 3)">
+              <a href=""><span class="bullet label-success"></span>Finished</a>
+            </li>
+            <li ng-click="bookItem.changeStatus(bookItem.detail, 4)">
+              <a href=""><span class="bullet label-danger"></span>Overtime</a>
+            </li>
+            <li ng-click="bookItem.changeStatus(bookItem.detail, 5)">
+              <a href=""><span class="bullet label-danger"></span>Canceled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-head card-head-primary">
+        <header>
+          Contact Information
+        </header>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width:30%;"><strong>Customer Name:</strong></td>
+              <td>{{ bookItem.detail.bookingBy }}</td>
+            </tr>
+            <tr>
+              <td><strong>Phone:</strong></td>
+              <td>{{ bookItem.detail.phoneNo }}</td>
+            </tr>
+            <tr>
+              <td><strong>Line:</strong></td>
+              <td>{{ bookItem.detail.lineID }}</td>
+            </tr>
+            <tr>
+              <td><strong>Email:</strong></td>
+              <td>{{ bookItem.detail.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head card-head-primary">
+        <header>
+          Booking Detail
+        </header>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width:30%;"><strong>Date and Time:</strong></td>
+              <td>{{ bookItem.detail.created | date: 'dd MMM yyyy HH:mm' }}</td>
+            </tr>
+            <tr>
+              <td><strong>Status:</strong></td>
+              <td><span class="h5"><span class="label label-{{ bookItem.detail.statusClass }}">{{ bookItem.detail.status }}</span></span></td>
+            </tr>
+            <tr>
+              <td><strong>Caretaker:</strong></td>
+              <td>{{ bookItem.detail.careTaker }}</td>
+            </tr>
+            <tr>
+              <td><strong>Age:</strong></td>
+              <td>{{ bookItem.detail.careTakerAge }}</td>
+            </tr>
+            <tr>
+              <td><strong>Gender:</strong></td>
+              <td>{{ bookItem.detail.careTakerGender }}</td>
+            </tr>
+            <tr>
+              <td><strong>Diagnosis:</strong></td>
+              <td>{{ bookItem.detail.diagnosis }}</td>
+            </tr>
+            <tr>
+              <td><strong>Other diagnosis:</strong></td>
+              <td>{{ bookItem.detail.diagnosisOther | textPlaceholder: '-'}}</td>
+            </tr>
+            <tr>
+              <td><strong>Underlying disease:</strong></td>
+              <td>{{ bookItem.detail.underlyingDisease }}</td>
+            </tr>
+            <tr>
+              <td><strong>Caregiver Gender:</strong></td>
+              <td>{{ bookItem.detail.caregiverGender }}</td>
+            </tr>
+            <tr>
+              <td><strong>Skills need:</strong></td>
+              <td>{{ bookItem.detail.skills }}</td>
+            </tr>
+            <tr>
+              <td><strong>Care Duration:</strong></td>
+              <td>{{ bookItem.detail.careDuration | textCapitalize }}</td>
+            </tr>
+            <tr>
+              <td><strong>Care Dates:</strong></td>
+              <td><span ng-repeat="date in bookItem.detail.careDates">{{ date | date: 'd MMM yyyy'}}, </span></td>
+            </tr>
+            <tr>
+              <td><strong>Care Time:</strong></td>
+              <td>{{ bookItem.detail.careTime }} hr.</td>
+            </tr>
+            <tr>
+              <td><strong>Address:</strong></td>
+              <td>{{ bookItem.detail.address.address }}
+                ถ.{{ bookItem.detail.address.street }}
+                ต.{{ bookItem.detail.address.subdistrict }}
+                อ.{{ bookItem.detail.address.district }}
+                จ.{{ bookItem.detail.address.province }}
+                {{ bookItem.detail.address.zip }}
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Note:</strong></td>
+              <td>{{ bookItem.detail.note | textPlaceholder: '-'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

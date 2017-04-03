@@ -1,0 +1,55 @@
+{
+  "id": 5,
+  "created": "2016-03-16T07:20:21.159Z",
+  "firstName": "สมหญิง",
+  "lastName": "จริงใจ",
+  "nickName": "ดา",
+  "age": 50,
+  "gender": 1,
+  "phone" : "089-624-1673",
+  "lineID": "@somluck.jaijing",
+  "email": "somluck.jaijing@mail.com",
+  "address": {
+    "address": "123",
+    "street": "สุขุมวิท",
+    "subdistrict": "คลองตันเหนือ",
+    "district": "วัฒนา",
+    "province": "กรุงเทพมหานคร",
+    "zip": "10110"
+  },
+  "homeTown": "สกลนคร",
+  "DOB": "1966-03-01T17:00:00.000Z",
+  "imageUrl": "assets/images/caregivers/caregiver01.jpg",
+  "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officia beatae et quod, porro reprehenderit voluptates, tempora at suscipit. Esse! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde non quae explicabo culpa quas blanditiis amet, sunt quasi at aspernatur!",
+  "years": 10,
+  "education": "NA",
+  "wantedCare": 0,
+  "skills": {
+    "ADL": true,
+    "bedRidden": false,
+    "tracheostomy": false,
+    "tubeFeeding": true,
+    "CAPD": true,
+    "pressureSore":false
+  },
+  "experience": {
+    "Stroke": true,
+    "Alzheimer": false,
+    "Parkinson": false,
+    "Palliative": false,
+    "postOp": false
+  },
+  "availables": [
+    "2016-03-31T17:00:00.000Z",
+    "2016-04-02T17:00:00.000Z",
+    "2016-04-03T17:00:00.000Z",
+    "2016-04-04T17:00:00.000Z",
+    "2016-04-05T17:00:00.000Z"
+  ],
+  "pricing": {
+    "short12": 900,
+    "short24": 1000,
+    "long12": 800,
+    "long24": 900
+  }
+}

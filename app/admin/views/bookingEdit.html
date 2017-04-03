@@ -1,0 +1,297 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <a ui-sref="admin.booking.detail({id: 1})"><i class="material-icons">keyboard_backspace</i> Back to Booking Detail</a>
+          <h1>Edit Booking Detail</h1>
+        </div>
+        <div class="col-sm-6">
+          <div class="page-title-detail">
+            <p class="h3">
+              <strong>Booking ID:</strong> {{ bookItem.id }} <br />
+              <strong>Customer:</strong> {{ bookItem.bookingBy }}<br />
+              Status: <span class="label label-{{ bookItem.statusClass }}">{{ bookItem.status }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <form class="booking-form" ng-submit="bookItem.editFormSubmit()" novalidate>
+      <div class="card">
+        <div class="card-head card-head-primary">
+          <header>
+            ข้อมูลผู้รับการดูแล
+          </header>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group">
+              <label class="col-sm-12 control-label">ท่านหาผู้ดูแลให้ใคร</label>
+              <div class="col-sm-6">
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.careTaker" name="caretaker" value="1" required><span>ตนเอง</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.careTaker" name="caretaker" value="2"><span>บิดามารดา</span>
+                </label>
+                <label class="radio radio-styled" style="margin-bottom: 4px;">
+                  <input type="radio" ng-model="bookItem.careTaker" name="caretaker" value="3"><span>ปู่ยาตายาย</span>
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.careTaker" name="caretaker" value="4"><span>ญาติ</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.careTaker" name="caretaker" value="5"><span>เพื่อน</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-12 control-label">ผู้รับการดูแลอายุเท่าใด</label>
+              <div class="col-sm-6">
+                <input type="number" ng-model="bookItem.careTakerAge" name="" class="form-control" min="0" placeholder="อายุ (ปี)">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-12 control-label">เพศของผู้รับการดูแล</label>
+              <div class="col-sm-12">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.careTakerGender" name="caretakerGender" value="1" required><span>ชาย</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.careTakerGender" name="caretakerGender" value="2"><span>หญิง</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12 control-label">ไม่สบายด้วยโรคใด</label>
+              <div class="col-sm-6">
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="ADL"><span>เจ็บป่วยเล็กน้อย หาผู้ดูแลสำหรับกิจวัตรประจำวัน</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="Stroke"><span>เส้นเลือดในสมองตีบ</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="Post-op"><span>พักฟื้นหลังผ่าตัด</span>
+                </label>
+                <label class="radio radio-styled" style="margin-bottom: 4px;">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="Alzheimer"><span>อัลไซเมอร์</span>
+                </label>
+
+              </div>
+              <div class="col-sm-6">
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="Parkinson"><span>พาร์กินสัน</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="Cancer"><span>มะเร็งระยะสุดท้าย</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="CKD"><span>ไตวายต้องฟอกเลือด</span>
+                </label>
+                <label class="radio radio-styled">
+                  <input type="radio" ng-model="bookItem.diagnosis" name="disease" value="Other"><span>อื่นๆ (โปรดระบุ)</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-12 control-label">โรคอื่นๆ คือโรค</label>
+              <div class="col-sm-6">
+                <input type="text" ng-model="bookItem.diagnosisOther" name="" class="form-control" placeholder="ระบุโรคที่ต้องการการดูแล">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-12 control-label">มีโรคประจำตัวอื่นๆ หรือไม่ หากมีโปรดระบุ</label>
+              <div class="col-sm-12">
+                <input type="text" ng-model="bookItem.underlyingDisease" name="" class="form-control" placeholder="เช่น เบาหวาน ความดันโลหิตสูง">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12 control-label">เพศของผู้ดูแลที่ต้องการ</label>
+              <div class="col-sm-12">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.caregiverGender" name="caregiverGender" value="0" required><span>ไม่ระบุ</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.caregiverGender" name="caregiverGender" value="1"><span>หญิง</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.caregiverGender" name="caregiverGender" value="2"><span>ชาย</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-12 control-label">ทักษะของผู้ดูแล</label>
+              <div class="col-sm-12 col-md-6">
+                <label class="checkbox checkbox-styled">
+                  <input type="checkbox" ng-model="bookItem.skills.ADL" name="skills" value="ADL" required><span>ช่วยเหลือกิจวัตรประจำวัน</span>
+                </label>
+                <label class="checkbox checkbox-styled">
+                  <input type="checkbox" ng-model="bookItem.skills.bedRidden" name="skills" value="bedRidden"><span>ดูแลผู้ป่วยติดเตียง</span>
+                </label>
+                <label class="checkbox checkbox-styled" style="margin-bottom: 4px;">
+                  <input type="checkbox" ng-model="bookItem.skills.tracheostomy" name="skills" value="tracheostomy"><span>ดูแลผู้ป่วยเจาะคอ</span>
+                </label>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <label class="checkbox checkbox-styled">
+                  <input type="checkbox" ng-model="bookItem.skills.tubeFeeding" name="skills" value="tubeFeeding"><span>ป้อนอาหารทางสายยาง</span>
+                </label>
+                <label class="checkbox checkbox-styled">
+                  <input type="checkbox" ng-model="bookItem.skills.CAPD" name="skills" value="CAPD"><span>ช่วยเหลือการฟอกไตทางหน้าท้อง</span>
+                </label>
+                <label class="checkbox checkbox-styled">
+                  <input type="checkbox" ng-model="bookItem.skills.pressureSore" name="skills" value="pressureSore"><span>ทำแผล แผลกดทับ</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-12 control-label">วันที่ต้องการเริ่มรับการดูแล</label>
+              <div class="col-sm-6">
+                <input type="date" ng-model="bookItem.careDateFirst" name="" class="form-control" placeholder="ระบุวัน" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-12 control-label">เวลาที่ต้องการการดูแลในแต่ละวัน</label>
+              <div class="col-sm-12">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.careTime" name="careTime" value="12" required><span>12 ชม. (ไป-กลับ)</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.careTime" name="careTime" value="24"><span>24 ชม. (ผู้ดูแลอาศัยที่บ้าน)</span>
+                </label>
+              </div>
+            </div>
+            <div for="" class="form-group clearfix">
+              <label class="col-sm-12 control-label">ฝากข้อความถึงเรา</label>
+              <div class="col-sm-12">
+                <textarea ng-model="bookItem.note" class="form-control" rows="3" placeholder="ฝากข้อความถึงเรา"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head card-head-primary">
+          <header>
+            ที่อยู่ผู้รับการดูแล
+          </header>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">บ้านเลขที่</label>
+              <input type="text" ng-model="bookItem.address.address" name="" class="form-control" placeholder="บ้านเลขที่" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">ถนน</label>
+              <input type="text" ng-model="bookItem.address.street" name="" class="form-control" placeholder="ถนน" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">แขวง/ตำบล</label>
+              <input type="text" ng-model="bookItem.address.subdistrict" name="" class="form-control" placeholder="แขวง/ตำบล" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">เขต/อำเภอ</label>
+              <input type="text" ng-model="bookItem.address.district" name="" class="form-control" placeholder="เขต/อำเภอ" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">จังหวัด</label>
+              <input type="text" ng-model="bookItem.address.province" name="" class="form-control" placeholder="จังหวัด" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">รหัสไปรษณีย์</label>
+              <input type="text" ng-model="bookItem.address.zip" name="" class="form-control" placeholder="รหัสไปรษณีย์" required>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card clearfix">
+        <div class="card-head card-head-primary">
+          <header>
+            ข้อมูลผู้ติดต่อ
+          </header>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">ชื่อผู้ติดต่อ</label>
+              <input type="text" ng-model="bookItem.bookingBy" name="" class="form-control" placeholder="ชื่อผู้ติดต่อ" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">โทร.</label>
+              <input type="text" ng-model="bookItem.phoneNo" name="" class="form-control" placeholder="หมายเลขโทรศัพท์" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">E-mail</label>
+              <input type="text" ng-model="bookItem.email" name="" class="form-control" placeholder="E-mail">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="" class="control-label">Line-ID</label>
+              <input type="text" ng-model="bookItem.lineID" name="" class="form-control" placeholder="Line-ID">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card clearfix">
+        <div class="card-head card-head-primary">
+          <header>
+            For Admin
+          </header>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group">
+              <label class="col-sm-12 control-label">ระยะเวลาที่ดูแล</label>
+              <div class="col-sm-12">
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.careDuration" name="careDuration" value="short" required><span>ระยะสั้น</span>
+                </label>
+                <label class="radio-inline radio-styled">
+                  <input type="radio" ng-model="bookItem.careDuration" name="careDuration" value="long"><span>ระยะยาว</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="" class="control-label">Care Dates</label>
+              <div>
+                <uib-datepicker
+                  ng-model='bookItem.activeDate'
+                  class="hah-datepicker"
+                  multi-select='bookItem.careDates'
+                  select-range='false'
+                  show-weeks="false"
+                  max-mode="day"
+                ></uib-datepicker>
+              </div>
+              <div>
+                <a ng-click="bookItem.clearSelectedDate()" class="btn btn-default">Clear</a>
+              </div>
+              <div>
+                <span ng-repeat="date in bookItem.careDates | orderBy: date" class="h6 inline-block bg-info padding-05 margin-r-1 margin-b-05">{{ date | date: 'd MMM' }}</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 padding-t-2 padding-b-4 text-right">
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
